@@ -391,36 +391,7 @@ body {
 	paddin: 5px;
 }
 
-.typing {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.typing-effect {
-  width: 22ch;
-  animation: typing 2s steps(22), effect 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-@keyframes effect {
-  50% {
-    border-color: transparent;
-  }
-}
-p:not(.typeing) {
-  text-align: center;
-}
 	
 blue {
     color: #72abca;
@@ -460,10 +431,7 @@ red {
 	             
 
 			<h2 class="myH2">Welcome to <blue>Linux-Freax!</blue></h2>
-			<p class="typing">
-			<span class="typing-effect">Typing effect for <blue>text</blue></span>
-			</p>
-
+			
 
 			<p class="myP">You will learn lots about linux and some cli tools!</p>
 			<p class="myP">If you see a <red>error</red> message me on discord...</p>
