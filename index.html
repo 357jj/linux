@@ -391,6 +391,37 @@ body {
 	paddin: 5px;
 }
 
+.typing {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-effect {
+  width: 22ch;
+  animation: typing 2s steps(22), effect 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes effect {
+  50% {
+    border-color: transparent;
+  }
+}
+p:not(.typeing) {
+  text-align: center;
+}
+	
 blue {
     color: #72abca;
 }
@@ -429,6 +460,11 @@ red {
 	             
 
 			<h2 class="myH2">Welcome to <blue>Linux-Freax!</blue></h2>
+			<p class="typing">
+			<span class="typing-effect">Typing effect for <blue>text</blue></span>
+			</p>
+
+
 			<p class="myP">You will learn lots about linux and some cli tools!</p>
 			<p class="myP">If you see a <red>error</red> message me on discord...</p>
                        
@@ -459,57 +495,7 @@ red {
 
 });
 
-// function([string1, string2],target id,[color1,color2])    
- consoleText(['Hello World.', 'Console Text', 'Made with Love.'], 'text',['tomato','rebeccapurple','lightblue']);
 
-function consoleText(words, id, colors) {
-  if (colors === undefined) colors = ['#fff'];
-  var visible = true;
-  var con = document.getElementById('console');
-  var letterCount = 1;
-  var x = 1;
-  var waiting = false;
-  var target = document.getElementById(id)
-  target.setAttribute('style', 'color:' + colors[0])
-  window.setInterval(function() {
-
-    if (letterCount === 0 && waiting === false) {
-      waiting = true;
-      target.innerHTML = words[0].substring(0, letterCount)
-      window.setTimeout(function() {
-        var usedColor = colors.shift();
-        colors.push(usedColor);
-        var usedWord = words.shift();
-        words.push(usedWord);
-        x = 1;
-        target.setAttribute('style', 'color:' + colors[0])
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (letterCount === words[0].length + 1 && waiting === false) {
-      waiting = true;
-      window.setTimeout(function() {
-        x = -1;
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (waiting === false) {
-      target.innerHTML = words[0].substring(0, letterCount)
-      letterCount += x;
-    }
-  }, 120)
-  window.setInterval(function() {
-    if (visible === true) {
-      con.className = 'console-underscore hidden'
-      visible = false;
-
-    } else {
-      con.className = 'console-underscore'
-
-      visible = true;
-    }
-  }, 400)
-}
 </script>
 </body>
 </html>
